@@ -1,21 +1,33 @@
 package com.pmanaktala.helloworldredis.controller;
 
 import com.pmanaktala.helloworldredis.dto.Query;
-import com.pmanaktala.helloworldredis.repository.QueryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class QueryController {
 
     @Autowired
-    private QueryRepository repo;
+    private RedisScript<String> script;
+
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
 
     @GetMapping("findAll")
-    public ResponseEntity<Iterable<Query>> findAll(){
-        return ResponseEntity.ok(repo.findAll());
+    public ResponseEntity<Object> findAll(){
+        String res = redisTemplate
+                .execute(script, Collections.emptyList());
+
+        return ResponseEntity.ok(res);
     }
+
 
 }
