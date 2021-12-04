@@ -15,9 +15,9 @@ import java.util.List;
 public class BeanFactory {
 
     @Bean
-    public RedisScript<List<List<String>>> script() {
+    public RedisScript<String> script() {
         Resource scriptSource = new ClassPathResource("status.lua");
-        return RedisScript.of(scriptSource, (Class<List<List<String>>>)(Object)List.class);
+        return RedisScript.of(scriptSource, String.class);
 //
     }
 

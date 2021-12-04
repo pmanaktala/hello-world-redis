@@ -1,7 +1,12 @@
-local result = {}
-
-for i=1, 3, 1 do
-    result[i]="test"
-end
-
-return result
+ans = ans..string.format('"a":%s,', alldata[1])
+       ans = ans..string.format('"b":%s,', alldata[2])
+       ans = ans..string.format('"c":%s,', alldata[3])
+       ans = ans..string.format('"d":%s,', alldata[4])
+       ans = ans..string.format('"e":%s,', alldata[5])
+       ans = ans..string.format('"sessid":%s,', alldata[6])
+       ans = ans..string.format('"id":%s,', alldata[7])
+       ans = ans..string.format('"a1":%s,', alldata[8])
+       ans = ans..string.format('"b1":%s,', alldata[9])
+       ans = ans..string.format('"c1":%s,', alldata[10])
+       ans = ans..string.format('"d1":%s,', alldata[11])
+       ans = ans..string.format('"e1":%s', alldata[12])

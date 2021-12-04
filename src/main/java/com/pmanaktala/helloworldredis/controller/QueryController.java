@@ -16,15 +16,15 @@ import java.util.List;
 public class QueryController {
 
     @Autowired
-    private RedisScript<List<List<String>>> script;
+    private RedisScript<String> script;
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
 
     @GetMapping("findAll")
-    public ResponseEntity<List<List<String>>> findAll(){
-        List<List<String>> res = redisTemplate
+    public ResponseEntity<String> findAll(){
+        String res = redisTemplate
                 .execute(script, Collections.emptyList());
 
         return ResponseEntity.ok(res);
