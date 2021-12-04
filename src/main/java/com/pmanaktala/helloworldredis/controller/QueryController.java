@@ -1,7 +1,8 @@
 package com.pmanaktala.helloworldredis.controller;
 
-import com.pmanaktala.helloworldredis.dto.Query;
+import com.pmanaktala.helloworldredis.dto.Example;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +16,15 @@ import java.util.List;
 public class QueryController {
 
     @Autowired
-    private RedisScript<String> script;
+    private RedisScript<List<List<String>>> script;
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
 
     @GetMapping("findAll")
-    public ResponseEntity<Object> findAll(){
-        String res = redisTemplate
+    public ResponseEntity<List<List<String>>> findAll(){
+        List<List<String>> res = redisTemplate
                 .execute(script, Collections.emptyList());
 
         return ResponseEntity.ok(res);

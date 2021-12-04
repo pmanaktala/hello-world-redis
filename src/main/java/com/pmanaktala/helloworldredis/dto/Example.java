@@ -8,13 +8,13 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "id",
         "a",
         "b",
         "c",
         "d",
         "e",
         "sessid",
+        "id",
         "a1",
         "b1",
         "c1",
@@ -22,10 +22,8 @@ import java.util.Map;
         "e1"
 })
 @Generated("jsonschema2pojo")
-public class Query {
+public class Example {
 
-    @JsonProperty("id")
-    private String id;
     @JsonProperty("a")
     private String a;
     @JsonProperty("b")
@@ -38,6 +36,8 @@ public class Query {
     private String e;
     @JsonProperty("sessid")
     private String sessid;
+    @JsonProperty("id")
+    private String id;
     @JsonProperty("a1")
     private String a1;
     @JsonProperty("b1")
@@ -180,5 +180,4 @@ public class Query {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-
 }
